@@ -1,0 +1,1116 @@
+/* ============================================================
+   ORG SCOPE — shared stylesheet
+   Tokens: ink #171410, yellow #F5C93F, red #E8432E, cream #FBF6E9
+   Display: Space Grotesk | Body: Inter | Labels/tags: IBM Plex Mono
+   ============================================================ */
+
+:root{
+  --ink: #171410;
+  --ink-soft: #3a352c;
+  --muted: #756c5a;
+  --yellow: #F5C93F;
+  --yellow-deep: #E4B520;
+  --red: #E8432E;
+  --red-deep: #C7331F;
+  --cream: #FBF6E9;
+  --card: #FFFDF6;
+  --line: #171410;
+  --radius-pill: 999px;
+  --radius-card: 22px;
+  --shadow: 4px 4px 0 var(--ink);
+  --shadow-sm: 3px 3px 0 var(--ink);
+  --maxw: 1120px;
+}
+
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+
+body{
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+@media (prefers-reduced-motion: reduce){
+  html{
+    scroll-behavior: auto;
+  }
+
+  *{
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+
+h1,
+h2,
+h3,
+h4{
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  color: var(--ink);
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.01em;
+}
+
+
+h1{
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 700;
+}
+
+h2{
+  font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+}
+
+h3{
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+p{
+  margin: 0 0 1em;
+  color: var(--ink-soft);
+}
+
+a{
+  color: inherit;
+}
+
+
+.mono{
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  letter-spacing: 0.02em;
+}
+
+
+.wrap{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+
+/* ---------- Eyebrow / status pill ---------- */
+
+.tag{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--card);
+}
+
+.tag .dot{
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--red);
+  flex: none;
+}
+
+.tag--yellow{
+  background: var(--yellow);
+}
+
+.tag--red{
+  background: var(--red);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.tag--red .dot{
+  background: #fff;
+}
+
+
+/* ---------- Header ---------- */
+
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--cream);
+  border-bottom: 3px solid var(--ink);
+}
+
+.site-header .wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand img{
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+.brand span{
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+
+.nav-toggle{
+  display: none;
+  border: 2px solid var(--ink);
+  background: var(--card);
+  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after{
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--ink);
+  position: relative;
+  transition: transform .2s ease;
+}
+
+.nav-toggle span::before{
+  position: absolute;
+  top: -6px;
+}
+
+.nav-toggle span::after{
+  position: absolute;
+  top: 6px;
+}
+
+
+.main-nav{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.main-nav a{
+  text-decoration: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 9px 14px;
+  border-radius: var(--radius-pill);
+  transition: background .15s ease, color .15s ease;
+}
+
+.main-nav a:hover{
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.main-nav a.is-active{
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.main-nav .nav-cta{
+  border: 2px solid var(--ink);
+  background: var(--red);
+  color: #fff !important;
+  margin-left: 6px;
+}
+
+.main-nav .nav-cta:hover{
+  background: var(--red-deep);
+}
+
+
+@media (max-width: 880px){
+
+  .nav-toggle{
+    display: flex;
+  }
+
+  .main-nav{
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    border-bottom: 3px solid var(--ink);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 20px 20px;
+    display: none;
+  }
+
+  .main-nav.is-open{
+    display: flex;
+  }
+
+  .main-nav a{
+    padding: 12px 14px;
+    text-align: left;
+  }
+
+  .main-nav .nav-cta{
+    margin-left: 0;
+    text-align: center;
+    margin-top: 6px;
+  }
+}
+
+
+/* ---------- Buttons ---------- */
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 14px 26px;
+  border-radius: var(--radius-pill);
+  border: 2.5px solid var(--ink);
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+  transition: transform .12s ease, box-shadow .12s ease;
+  cursor: pointer;
+}
+
+.btn:hover{
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.btn:active{
+  transform: translate(0,0);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.btn--yellow{
+  background: var(--yellow);
+}
+
+.btn--red{
+  background: var(--red);
+  color: #fff;
+}
+
+.btn--ink{
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.btn-row{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+
+/* ---------- Hero ---------- */
+
+.hero{
+  padding: 84px 0 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .wrap{
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-copy p.lede{
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.hero-art{
+  display: flex;
+  justify-content: center;
+}
+
+.hero-art svg{
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+}
+
+
+@media (max-width: 880px){
+
+  .hero .wrap{
+    grid-template-columns: 1fr;
+  }
+
+  .hero-art{
+    order: -1;
+  }
+
+  .hero-art svg{
+    max-width: 240px;
+  }
+}
+
+
+/* ---------- Sections ---------- */
+
+section{
+  padding: 64px 0;
+}
+
+.section-head{
+  max-width: 640px;
+  margin-bottom: 40px;
+}
+
+.section-alt{
+  background: var(--card);
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+}
+
+.section-ink{
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.section-ink h2,
+.section-ink h3{
+  color: var(--cream);
+}
+
+.section-ink p{
+  color: #d8d2c3;
+}
+
+
+/* pill divider */
+
+.pill-divider{
+  height: 34px;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--yellow) 0 28px,
+    var(--card) 28px 56px
+  );
+  margin: 8px 0 56px;
+}
+
+/* pill divider 2 */
+
+.pill-divider-2{
+  height: 34px;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--red) 0 28px,
+    var(--card) 28px 56px
+  );
+  margin: 8px 0 56px;
+}
+
+
+/* ---------- Cards ---------- */
+
+.grid{
+  display: grid;
+  gap: 24px;
+}
+
+.grid-2{
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3{
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4{
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
+@media (max-width: 880px){
+
+  .grid-2,
+  .grid-3,
+  .grid-4{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.card{
+  position: relative;
+  background: var(--card);
+  border: 2.5px solid var(--ink);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card h3{
+  margin-bottom: 10px;
+}
+
+.card p:last-child{
+  margin-bottom: 0;
+}
+
+.card--yellow{
+  background: var(--yellow);
+}
+
+
+/* ---------- Service cards / hover popovers ---------- */
+
+.service-card{
+  position: relative;
+  z-index: 1;
+}
+
+.card-popover{
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  width: 100%;
+
+  padding: 14px;
+
+  background: var(--card);
+  border: 2.5px solid var(--ink);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+
+  transition:
+    opacity .18s ease,
+    transform .18s ease,
+    visibility .18s ease;
+
+  z-index: 20;
+}
+
+.card-popover .btn{
+  width: 100%;
+  justify-content: center;
+}
+
+.service-card:hover{
+  z-index: 30;
+}
+
+.service-card:hover .card-popover{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+/* service icon chip */
+
+.chip-icon{
+  width: 46px;
+  height: 46px;
+  border: 2.5px solid var(--ink);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--yellow);
+  margin-bottom: 16px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+/* ---------- Process steps ---------- */
+
+.steps{
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.step{
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 20px;
+  padding: 28px 0;
+  border-top: 2px solid var(--ink);
+}
+
+.step:last-child{
+  border-bottom: 2px solid var(--ink);
+}
+
+.step-num{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.step-status{
+  display: inline-block;
+  margin-top: 10px;
+}
+
+
+@media (max-width: 640px){
+
+  .step{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ---------- Placeholder image blocks ---------- */
+
+.placeholder{
+  border: 2.5px dashed var(--ink);
+  border-radius: var(--radius-card);
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(23,20,16,0.05) 0 10px,
+    transparent 10px 20px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  padding: 20px;
+  min-height: 180px;
+}
+
+.placeholder strong{
+  display: block;
+  color: var(--ink);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+
+/* ---------- Stat row ---------- */
+
+.stat{
+  border: 2.5px solid var(--ink);
+  border-radius: var(--radius-card);
+  padding: 22px;
+  background: var(--card);
+}
+
+.stat .num{
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 2.1rem;
+}
+
+.stat .label{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+
+/* ---------- Quote / callout ---------- */
+
+.callout{
+  border-left: 6px solid var(--red);
+  padding: 4px 0 4px 22px;
+  margin: 32px 0;
+}
+
+.callout p{
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+
+/* ---------- Form ---------- */
+
+.form-card{
+  background: var(--card);
+  border: 2.5px solid var(--ink);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+.field{
+  margin-bottom: 20px;
+}
+
+.field label{
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.field input,
+.field select,
+.field textarea{
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.field textarea{
+  resize: vertical;
+  min-height: 120px;
+}
+
+.field-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+
+@media (max-width: 640px){
+
+  .field-row{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ---------- Footer ---------- */
+
+.site-footer{
+  background: var(--ink);
+  color: var(--cream);
+  border-top: 3px solid var(--ink);
+  padding: 56px 0 30px;
+}
+
+.footer-cta{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #3a352c;
+}
+
+.footer-cta h2{
+  color: var(--cream);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+
+.footer-grid{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+
+
+@media (max-width: 780px){
+
+  .footer-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+.footer-brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.footer-brand img{
+  height: 32px;
+}
+
+.footer-brand span{
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+.footer-col h4{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #a9a08a;
+  margin-bottom: 14px;
+}
+
+.footer-col a{
+  display: block;
+  text-decoration: none;
+  color: #e9e4d6;
+  padding: 6px 0;
+  font-size: 0.94rem;
+}
+
+.footer-col a:hover{
+  color: var(--yellow);
+}
+
+.footer-bottom{
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 2px solid #3a352c;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: #8f8873;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
+/* ---------- Page hero (interior pages) ---------- */
+
+.page-hero{
+  padding: 56px 0 40px;
+  border-bottom: 3px solid var(--ink);
+}
+
+.page-hero .lede{
+  max-width: 60ch;
+  font-size: 1.1rem;
+}
+
+
+/* ---------- Utility ---------- */
+
+.center{
+  text-align: center;
+}
+
+.mt-0{
+  margin-top: 0;
+}
+
+.list-clean{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-clean li{
+  padding: 10px 0 10px 26px;
+  position: relative;
+  color: var(--ink-soft);
+  border-bottom: 1px solid rgba(23,20,16,0.12);
+}
+
+.list-clean li::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18px;
+  width: 9px;
+  height: 9px;
+  background: var(--red);
+  border-radius: 50%;
+}
+
+
+/* ============================================================
+   INDEX.HTML — Volunteer / Business / Partner banners
+   ============================================================ */
+
+.index-banner-wrapper{
+  position: relative;
+}
+
+
+/* Individual banner button styles */
+
+.index-banner-button{
+  display: block;
+  width: 100%;
+  border-top: 4px solid black;
+  transition: opacity 0.2s ease;
+}
+
+
+/* Removes the extra border from the very last banner */
+
+.index-banner-wrapper:last-child .index-banner-button{
+  border-bottom: 4px solid black;
+}
+
+
+/* Makes sure the image fills the button correctly */
+
+.index-banner-button img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+/* Hover effect */
+
+.index-banner-button:hover{
+  opacity: 0.8;
+}
+
+
+/* Banner tooltip */
+
+.index-banner-tooltip{
+  max-height: 0;
+  overflow: hidden;
+  background: var(--tooltip-color, #444);
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  box-sizing: border-box;
+  transition: max-height 0.3s ease;
+}
+
+.index-banner-wrapper:hover .index-banner-tooltip{
+  max-height: 300px;
+  border-bottom: 4px solid black;
+}
+
+.index-banner-tooltip-inner{
+  padding: 48px 24px;
+}
+
+.index-banner-tooltip p{
+  margin: 16px 0;
+  color: black;
+  font-family: sans-serif;
+  line-height: 1.4;
+}
+
+
+/* Per-banner sky colors */
+
+.index-banner-wrapper--volunteer{
+  --tooltip-color: #bfe3f5;
+}
+
+.index-banner-wrapper--owners{
+  --tooltip-color: #f3c9b0;
+}
+
+.index-banner-wrapper--partner{
+  --tooltip-color: #5b5470;
+}
+
+
+
+
+
+
+
+
+
+.doc-tabs{
+  position: relative;
+  margin-top: 32px;
+}
+
+.doc-tab-input{
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.doc-tab-label{
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 9px 16px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border: 2px solid var(--cream);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--cream);
+  transition: background .15s ease, color .15s ease;
+}
+
+.doc-tab-label:hover{
+  background: rgba(245,201,63,0.15);
+}
+
+.doc-tab-input:checked + .doc-tab-label{
+  background: var(--yellow);
+  color: var(--ink);
+  border-color: var(--yellow);
+}
+
+.doc-panel{
+  display: none;
+  animation: panelReveal .2s ease;
+}
+
+#doc-dod:checked ~ #panel-dod,
+#doc-agreement:checked ~ #panel-agreement,
+#doc-review:checked ~ #panel-review{
+  display: block;
+}
+
+@keyframes panelReveal{
+  from{ opacity: 0; transform: translateY(-6px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+
+
+
+
+.doc-table-card{
+  background: var(--cream);
+  padding: 8px;
+}
+
+.doc-table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.doc-table th{
+  text-align: left;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  padding: 14px 20px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.doc-table td{
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(23,20,16,0.15);
+  font-family: 'Inter', sans-serif;
+}
+
+.doc-table tr:last-child td{
+  border-bottom: none;
+}
+
+.doc-table td:first-child{
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.doc-table td:nth-child(2){
+  color: var(--ink-soft);
+}
+
+.doc-link{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--ink);
+  white-space: nowrap;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 1px;
+  transition: color .15s ease;
+}
+
+.doc-link:hover{
+  color: var(--red);
+}
+
+@media (max-width: 640px){
+  .doc-table{
+    font-size: 0.9rem;
+  }
+  .doc-table th:nth-child(2),
+  .doc-table td:nth-child(2){
+    display: none;
+  }
+}
