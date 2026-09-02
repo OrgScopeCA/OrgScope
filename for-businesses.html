@@ -4,12 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Businesses — Org Scope</title>
-<meta name="description" content="Get a free website, SEO support, flyers, posters, or social graphics for your GTA small business. No account access required — ever.">
+<meta name="description" content="Get a free website, SEO support, flyers, posters, or social graphics for your GTA small business. No account access required, ever.">
+<link rel="canonical" href="https://orgscope.ca/for-businesses.html">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://orgscope.ca/" },
+    { "@type": "ListItem", "position": 2, "name": "For Businesses", "item": "https://orgscope.ca/for-businesses.html" }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -20,11 +31,11 @@
       <span>Org Scope</span>
     </a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle"><span></span></button>
-    <nav class="main-nav" id="mainNav">
+    <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="how-it-works.html">How It Works</a>
-      <a href="for-businesses.html" class="is-active">For Businesses</a>
+      <a href="for-businesses.html" class="is-active" aria-current="page">For Businesses</a>
       <a href="volunteer.html">Volunteer</a>
       <a href="partners.html">Partners</a>
       <a href="contact.html" class="nav-cta">Contact</a>
@@ -35,11 +46,26 @@
 <main>
 <section class="page-hero" style="background: var(--yellow);">
   <div class="wrap">
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+      <a href="index.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">For Businesses</span>
+    </nav>
     <h1>For Businesses</h1>
   </div>
 </section>
 
-  <section>
+  <section style="padding-top:0; padding-bottom:0;">
+    <div class="wrap">
+      <nav class="jump-nav" aria-label="On this page">
+        <span class="jump-nav-label">On this page:</span>
+        <a href="#services">Services</a>
+        <a href="#what-we-ask">What We Ask For</a>
+        <a href="#after-submit">After You Submit</a>
+        <a href="#good-to-know">Good to Know</a>
+      </nav>
+    </div>
+  </section>
+
+  <section id="services">
     <div class="wrap">
       <div class="section-head">
         <span class="tag"><span class="dot"></span>What you can request</span>
@@ -72,7 +98,7 @@
 
   <div class="wrap"><div class="pill-divider" aria-hidden="true"></div></div>
 
-  <section class="section-alt">
+  <section id="what-we-ask" class="section-alt">
     <div class="wrap grid grid-2" style="align-items:start;">
       <div>
         <span class="tag tag--red"><span class="dot"></span>What we ask for</span>
@@ -85,21 +111,73 @@
           <li>No account access, credentials, or passwords needed</li>
         </ul>
       </div>
-      <img src="assets/OrgScopePaper.png" alt="Org Scope illustration — paper" class="about-img">
+      <img src="assets/OrgScopePaper.png" alt="Org Scope illustration — paper" class="about-img" loading="lazy">
     </div>
   </section>
 
-  <section>
+  <section id="after-submit">
     <div class="wrap grid grid-2" style="align-items:center;">
       <div>
         <h2>What happens after you submit?</h2>
-        <p>Your task is reviewed for scope, posted to our internal task board, and picked up by a vetted volunteer. A second volunteer independently checks the finished work before it's delivered to you — just make sure to review it before publishing.</p>
+        <p>Your task is reviewed for scope, posted to our internal task board, and picked up by a vetted volunteer. A second volunteer independently checks the finished work before it's delivered to you, just make sure to review it before publishing.</p>
         <a href="how-it-works.html" class="btn">See the full process →</a>
       </div>
       <div class="card card--yellow">
         <h3>Ready when you are</h3>
         <p style="color:var(--ink-soft);">Fill out the intake form and a volunteer will follow up to confirm scope and timeline before any work begins.</p>
         <a href="https://docs.google.com/forms/u/0/d/e/1FAIpQLScICPucujW6Y-7GEKHRsQPw0idvyvIYBp0X6STzcSj21dwyRw/formResponse" class="btn btn--ink" style="margin-top:8px;">Go to the intake form →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="pill-divider-2" aria-hidden="true"></div></div>
+
+  <section id="good-to-know" class="section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tag"><span class="dot"></span>Good to know</span>
+        <h2 class="mt-0">Questions you probably have.</h2>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Can I submit a task before September?</h3>
+          <p>Yes. Right now, tasks are personally handled by our founder as pilot projects, following the exact same process and review checklist the full team will use later. Submitting now means your business is one of the first taken on, not put on hold.</p>
+        </div>
+        <div class="card">
+          <h3>Is this really free?</h3>
+          <p>Yes, there is no cost to you for the work itself. If your project involves a website, you're responsible for your own domain and hosting, which we'll walk you through if needed.</p>
+        </div>
+        <div class="card">
+          <h3>What if I want changes after delivery?</h3>
+          <p>You can request revisions after delivery. These are completed based on volunteer availability and are not guaranteed to be immediate, since Org Scope is entirely volunteer run.</p>
+        </div>
+        <div class="card">
+          <h3>What if I'm outside Scarborough?</h3>
+          <p>Org Scope serves small businesses across Scarborough, North York, and the wider GTA. If you're unsure whether you're in range, reach out and ask rather than assuming you're not.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tag"><span class="dot"></span>Keep exploring</span>
+        <h2 class="mt-0">Related pages.</h2>
+      </div>
+      <div class="grid grid-3">
+        <a href="how-it-works.html" class="card related-card">
+          <h3>How It Works</h3>
+          <p>The full step by step process, and how it's handled right now versus after September.</p>
+        </a>
+        <a href="partners.html" class="card related-card">
+          <h3>Partners</h3>
+          <p>Our trust and security model in full detail.</p>
+        </a>
+        <a href="about.html" class="card related-card">
+          <h3>About Org Scope</h3>
+          <p>Who we are, our mission, and where we work.</p>
+        </a>
       </div>
     </div>
   </section>

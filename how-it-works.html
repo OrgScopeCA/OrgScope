@@ -4,12 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How It Works — Org Scope</title>
-<meta name="description" content="How a task moves through Org Scope, from submission to a vetted volunteer build to a two-reviewer sign-off, start to finish.">
+<meta name="description" content="How a task moves through Org Scope, from submission to a two-reviewer sign-off, start to finish.">
+<link rel="canonical" href="https://orgscope.ca/how-it-works.html">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://orgscope.ca/" },
+    { "@type": "ListItem", "position": 2, "name": "How It Works", "item": "https://orgscope.ca/how-it-works.html" }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -20,10 +31,10 @@
       <span>Org Scope</span>
     </a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle"><span></span></button>
-    <nav class="main-nav" id="mainNav">
+    <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="how-it-works.html" class="is-active">How It Works</a>
+      <a href="how-it-works.html" class="is-active" aria-current="page">How It Works</a>
       <a href="for-businesses.html">For Businesses</a>
       <a href="volunteer.html">Volunteer</a>
       <a href="partners.html">Partners</a>
@@ -35,12 +46,25 @@
 <main>
 <section class="page-hero" style="background: var(--yellow);">
   <div class="wrap">
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+      <a href="index.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">How It Works</span>
+    </nav>
     <h1>How It Works.</h1>
   </div>
 </section>
 
+  <section style="padding-top:0; padding-bottom:0;">
+    <div class="wrap">
+      <nav class="jump-nav" aria-label="On this page">
+        <span class="jump-nav-label">On this page:</span>
+        <a href="#the-steps">The Steps</a>
+        <a href="#right-now">Right Now vs September</a>
+        <a href="#documents">Documents</a>
+      </nav>
+    </div>
+  </section>
 
-  <section>
+  <section id="the-steps">
     <div class="wrap">
       <div class="steps">
         <div class="step">
@@ -89,34 +113,75 @@
 
   <div class="wrap"><div class="pill-divider" aria-hidden="true"></div></div>
 
-    <div class="card doc-table-card" style="margin-top:32px;">
-      <table class="doc-table">
-        <thead>
-          <tr>
-            <th>Document</th>
-            <th>What it covers</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>One-Pager Overview</td>
-            <td>Who we are, our mission, and how the process works, in short</td>
-            <td><a href="#" class="doc-link">View →</a></td>
-          </tr>
-          <tr>
-            <td>Review Checklist</td>
-            <td>Everything a second volunteer checks before a task is delivered</td>
-            <td><a href="#" class="doc-link">View →</a></td>
-          </tr>
-          <tr>
-            <td>Business Agreement</td>
-            <td>Ownership, liability, timelines, and what's expected from you</td>
-            <td><a href="#" class="doc-link">View →</a></td>
-          </tr>
-        </tbody>
-      </table>
+  <section id="right-now" class="section-alt">
+    <div class="wrap">
+      <span class="tag tag--red"><span class="dot"></span>Right now vs September</span>
+      <h2>This is what the process looks like once our full team is running it.</h2>
+      <p>Right now, ahead of our volunteer cohort starting in mid-September, our founder personally handles every step above for pilot businesses, using this exact process and the same review checklist volunteers will follow later. Nothing skips a step, it's simply one person doing all five right now instead of a full team. Submitting a task today does not mean waiting until September, it means becoming one of the first real projects the process is tested on.</p>
     </div>
+  </section>
+
+  <div class="wrap"><div class="pill-divider-2" aria-hidden="true"></div></div>
+
+  <section id="documents">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tag"><span class="dot"></span>See it in writing</span>
+        <h2 class="mt-0">The documents behind the process.</h2>
+      </div>
+      <div class="card doc-table-card">
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Document</th>
+              <th>What it covers</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>One-Pager Overview</td>
+              <td>Who we are, our mission, and how the process works, in short</td>
+              <td><a href="#" class="doc-link">View →</a></td>
+            </tr>
+            <tr>
+              <td>Review Checklist</td>
+              <td>Everything a second volunteer checks before a task is delivered</td>
+              <td><a href="#" class="doc-link">View →</a></td>
+            </tr>
+            <tr>
+              <td>Business Agreement</td>
+              <td>Ownership, liability, timelines, and what's expected from you</td>
+              <td><a href="#" class="doc-link">View →</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tag"><span class="dot"></span>Keep exploring</span>
+        <h2 class="mt-0">Related pages.</h2>
+      </div>
+      <div class="grid grid-3">
+        <a href="for-businesses.html" class="card related-card">
+          <h3>For Businesses</h3>
+          <p>What you can request, and how to submit a task today.</p>
+        </a>
+        <a href="partners.html" class="card related-card">
+          <h3>Partners</h3>
+          <p>Our full trust and security model.</p>
+        </a>
+        <a href="volunteer.html" class="card related-card">
+          <h3>Volunteer</h3>
+          <p>Join the cohort that takes this process to full scale in September.</p>
+        </a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
