@@ -1131,3 +1131,109 @@ section{
   border-radius: var(--radius-card);
   display: block;
 }
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   NAV DROPDOWN — "For Businesses" → Locations
+   Matches existing design tokens: pill nav links, 2.5px ink
+   borders, hard offset shadow, IBM Plex Mono uppercase labels.
+   Append this to the bottom of style.css.
+   ============================================================ */
+
+.nav-dropdown{
+  position: relative;
+}
+
+.nav-dropdown-trigger{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-dropdown-trigger .caret{
+  font-size: 0.65rem;
+  transition: transform .15s ease;
+}
+
+.nav-dropdown-menu{
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 220px;
+
+  background: var(--card);
+  border: 2.5px solid var(--ink);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+  padding: 8px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+  z-index: 60;
+}
+
+.nav-dropdown-menu a{
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-soft);
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  transition: background .15s ease, color .15s ease;
+}
+
+.nav-dropdown-menu a:hover{
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+/* Desktop: hover/focus reveals the menu */
+@media (min-width: 881px){
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-dropdown:hover .caret,
+  .nav-dropdown:focus-within .caret{
+    transform: rotate(180deg);
+  }
+}
+
+/* Mobile: nav is already a stacked full-width menu (see .main-nav.is-open),
+   so the dropdown becomes tap-to-expand and sits inline instead of floating. */
+@media (max-width: 880px){
+  .nav-dropdown-menu{
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0 0 0 14px;
+    display: none;
+  }
+
+  .nav-dropdown.is-open .nav-dropdown-menu{
+    display: block;
+  }
+
+  .nav-dropdown.is-open .caret{
+    transform: rotate(180deg);
+  }
+}
